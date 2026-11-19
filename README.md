@@ -1,7 +1,7 @@
 # Workspace CV LaTeX
 
-Workspace dùng XeLaTeX, hỗ trợ tiếng Việt và font Arial trên Windows.
-Nội dung hiện tại là minh họa, chưa phải thông tin cá nhân thật.
+Workspace dùng XeLaTeX với template CV đã cung cấp: khổ Letter, cỡ chữ 12pt, font Charter, tiêu đề xanh và đường kẻ cam.
+Nội dung CV được nhập từ template của người dùng. Đặt ảnh tại `assets/shot.png` để thay chữ HMN trong khung ảnh.
 
 ## Bắt đầu
 
@@ -42,4 +42,4 @@ Nếu build lỗi, xem `build/main.log` và mục Output > LaTeX Workshop trong 
 - MiKTeX hoặc bản phân phối có lệnh `xelatex`.
 - VS Code và extension LaTeX Workshop để soạn thảo và xem PDF.
 
-Workspace chưa khởi tạo kho Git và chưa chứa thông tin cá nhân thật.
+Workspace chưa khởi tạo kho Git. Nội dung hiện tại có thông tin cá nhân từ template; hãy kiểm tra trước khi chia sẻ công khai.

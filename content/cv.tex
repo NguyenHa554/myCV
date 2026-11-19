@@ -1,37 +1,165 @@
 % !TeX root = ../main.tex
-% Thay nội dung minh họa bên dưới bằng thông tin của bạn.
+\newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    %% Header
+    %% ─── Header with photo ──────────────────────────────────────────
 \begin{center}
-  {\LARGE\bfseries HỌ VÀ TÊN}\\[6pt]
-  {\large Vị trí ứng tuyển}\\[6pt]
-  \href{mailto:email@example.com}{email@example.com}
-  \quad | \quad 0901 234 567 \quad | \quad Thành phố\\[3pt]
-  \href{https://github.com/username}{github.com/username}
+  \begin{tabular}{@{} >{\centering}m{3.5cm}
+                      @{ \hspace{0.7cm} }
+                      m{\dimexpr\linewidth-4.2cm\relax}
+                  @{}}
+    %───────────────────────────────────────────────────────────────
+    % left cell: circle‑clipped image
+    \tikz[baseline={([yshift=0cm]current bounding box.center)}]{
+      \node[
+        circle, draw, line width=1pt,
+        minimum size=3.5cm, inner sep=0pt, outer sep=0pt,
+        path picture={
+          % 1) clip to a 1.5cm radius circle...
+          \clip (path picture bounding box.center) circle (1.75cm);
+          % 2) then place the image (width=2.6cm so you get a little white margin)
+          \node at (path picture bounding box.center)
+            {\IfFileExists{assets/shot.png}{%
+              \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{assets/shot.png}%
+            }{\IfFileExists{shot.png}{%
+              \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{shot.png}%
+            }{\color{primaryColor}\fontsize{24pt}{26pt}\selectfont HMN}}};
+        }
+      ] {};
+    }
+    &
+    % right cell: name / title / contacts
+    \begin{minipage}[c]{\linewidth}
+      {\fontsize{27pt}{27pt}\selectfont\bfseries Ha Minh Nguyen}\\[8pt] 
+      {\fontsize{16pt}{16pt}\selectfont Data  \& BI intern}\\[8pt]
+      {\fontsize{10pt}{12pt}\selectfont\color{primaryColor}
+        \faPhone\ 0822677004 \quad
+        \faEnvelope\ \href{mailto:nguyen.haminh050504@gmail.com}{nguyen.haminh050504@gmail.com}\\[2pt]
+        \faGithub\ \href{https://github.com/NguyenHa554}{https://github.com/NguyenHa554} \quad
+        \faMapMarker*\ Thanh My Tay District
+      }
+    \end{minipage}
+  \end{tabular}
 \end{center}
 
-\section*{Giới thiệu}
-Viết 2--3 câu về chuyên môn, thế mạnh và định hướng công việc.
-Ưu tiên thông tin liên quan trực tiếp đến vị trí ứng tuyển.
 
-\section*{Kinh nghiệm làm việc}
-\textbf{Tên công ty} \hfill Tháng/Năm -- Hiện tại\\
-\textit{Chức danh}
-\begin{itemize}
-  \item Mô tả trách nhiệm chính và phạm vi công việc.
-  \item Nêu thành tích cụ thể, bổ sung số liệu khi có thể kiểm chứng.
-\end{itemize}
 
-\section*{Dự án}
-\textbf{Tên dự án} \hfill Năm thực hiện\\
-\textit{Công nghệ hoặc công cụ sử dụng}
-\begin{itemize}
-  \item Mô tả bài toán, đóng góp cá nhân và kết quả.
-\end{itemize}
+    \vspace{5pt}
 
-\section*{Học vấn}
-\textbf{Tên trường} \hfill Năm bắt đầu -- Năm kết thúc\\
-Chuyên ngành / Bằng cấp
+    %% Objectives
+    \section{Objectives}
+    \begin{onecolentry}
+        Soon-to-be Computer Engineering graduate at Ho Chi Minh City University of Technology
+(HCMUT) familiar with SQL, PowerBi and data processing. Interested in in data engineering and data warehouse development, eager to apply my technical and problem-solving skills to build reliable data pipelines and support data-driven solutions while continuously learning in a professional environment.
+    \end{onecolentry}
 
-\section*{Kỹ năng}
-\textbf{Chuyên môn:} Điền các kỹ năng phù hợp với công việc.\\
-\textbf{Công cụ:} Điền các công cụ bạn sử dụng thành thạo.\\
-\textbf{Ngoại ngữ:} Ghi trình độ thực tế hoặc chứng chỉ.
+    %% Education
+    \section{Education}
+    \begin{twocolentry}{09/2022 -- 05/2026}
+        \textbf{Ho Chi Minh City  University of Technology (BKU)}
+    \end{twocolentry}
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        \textbf {}Bachelor of Computer Engineering\\
+        \textbf {}Major: Information system\\
+        \textbf{}GPA: 3.1/4
+    \end{onecolentry}
+%
+    \vspace{0.1cm}
+ \begin{twocolentry}{04/2026 -- 08/2026}
+        \textbf{Google Data Analytics Certificate}
+    \end{twocolentry}
+    \vspace{0.1cm}
+ %%Certificate:
+ \section{Certificates}
+    \begin{twocolentry}{12/2025}
+    \textbf{TOEIC Listening \& Reading}: 755
+    \end{twocolentry}
+    \vspace{0.1cm}
+
+    %% Skills   
+    \section{Skills}
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{Programming \& Databases:} 
+    Python(Numpy, pandas, matplotlib, seaborn), SQL, MySQL.
+\end{onecolentry}
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{Data Engineering:} 
+Data Cleaning, Data Validation, Data Processing, Data Analysis, dbt
+\end{onecolentry}
+
+\vspace{0.1cm}
+
+\begin{onecolentry}
+    \textbf{BITools \& Reporting:} Power BI (Power Query, DAX, Data Modeling, Interactive Dashboards), Excel (PivotTable, Power Query, VLOOKUP)
+   
+\end{onecolentry}
+    \vspace{0.1cm}
+    %% WE  
+    \section{Work Experience}
+
+    \begin{twocolentry}{06/2025 -- 09/2025}
+        \textbf{EyeCode Tech}
+    \end{twocolentry}
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        \begin{itemize}
+            \item Coordinated tasks and project progress across a cross-functional development team.
+       \item Assisted in organizing, validating, and integrating project data while coordinating with the web development team.
+       \item Followed up on project issues and supported communication between technical team members.
+        \end{itemize}
+
+    \end{onecolentry}
+    \vspace{0.1cm}
+
+   
+
+    %% Projects
+    \section{Projects}
+    \vspace{0.1cm}   
+    \begin{twocolentry}{}
+        \textbf{FMCG Stores Sales Analytics} \textit{(Personal Project)}
+        \href{https://github.com/NguyenHa554/FMCG_stores/tree/main}{\faGithub}
+    \end{twocolentry}
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        Overview: Analyzed FMCG sales transactions to optimize data processing, evaluate business performance, and generate actionable insights.
+        \\ \vspace{0.1cm}
+        \textbf{Tech stacks}: SQL, MySQL, Power BI, Excel.
+        \\ \vspace{0.1cm}
+        \textbf{Key Features:}
+        \begin{highlights}
+            \item \textbf{} Built an ETL pipeline for 6.7M FMCG sales transactions by correcting invalid revenue data and executing multi-stage pre-aggregations into summary tables, enabling Power BI dashboards to analyze aggregated KPIs instead of scanning raw transaction-level data.
+            \item \textbf{} Delivered business insights across 5 Power BI dashboards, showing that FMCG revenue was broadly distributed across cities, driven mainly by a few high-contribution product categories, and better managed through category-level inventory planning, customer segmentation, salesperson productivity tracking, and regional coverage strategy.
+            \item Implemented dbt models and data quality tests to organize and validate data transformations for downstream analytics.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.5cm}
+    \begin{twocolentry}{10/2025 -- 12/2025}
+        \textbf{Predictive Modeling \& Environmental Data Analysis(Group project)} 
+    \href{https://github.com/NguyenHa554/Automatic-Greenhouse-irrigation-system}{\faGithub}
+    \end{twocolentry}
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        Problem:  Inefficient agricultural resource allocation and potential crop failures due to unoptimized watering schedules.
+        \\ \vspace{0.1cm}
+        \textbf{Tech stack}: Python (Pandas, NumPy, Seaborn, Matplotlib), LightGBM, SMOTE, Excel.
+        \\ \vspace{0.1cm}
+        \textbf{Key Features:}
+        \begin{highlights}
+            \item \textbf{Forecasting \& Predictive Modeling:} : Merged and cleaned three separate environmental datasets (Climate, Weather, Sensors)containing over 47,000 records.
+            \item \textbf{Predictive   Modeling:} Developed and fine-tuned a LightGBM Regressor model to accurately forecast continuous watering amounts based on environmental variables, achieving an R2 score of 0.6115 and a Mean Absolute Error (MAE) of 0.3729 on future test data.
+            \item \textbf{Safety Optimization (Classification Proxy):} Translated the continuous regression predictions into a binary operational logic using a strict 0.1 safety threshold. Successfully established a highly reliable early-warning proxy that achieved a 98.05\% Recall score, ensuring plants strictly receive sufficient water to prevent system failures.
+        \end{highlights}
+        
+    \end{onecolentry}

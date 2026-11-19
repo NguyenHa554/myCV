@@ -1,0 +1,22 @@
+{
+  "files.encoding": "utf8",
+  "editor.wordWrap": "on",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "build-cv",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "%DIR%/scripts/build.ps1"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "Build CV (XeLaTeX)", "tools": ["build-cv"] }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.view.pdf.viewer": "tab"
+}

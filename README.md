@@ -1,7 +1,7 @@
 # Workspace CV LaTeX
 
 Workspace dùng XeLaTeX với template CV đã cung cấp: khổ Letter, cỡ chữ 12pt, font Charter, tiêu đề xanh và đường kẻ cam.
-Nội dung CV được nhập từ template của người dùng. Đặt ảnh tại `assets/shot.png` để thay chữ HMN trong khung ảnh.
+Nội dung CV được nhập từ template của người dùng. Ảnh chân dung được lấy từ `images/shot.png`, giữ đúng tỷ lệ trong khung tròn.
 
 ## Bắt đầu
 

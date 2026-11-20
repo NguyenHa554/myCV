@@ -42,10 +42,11 @@
 \usepackage[export]{adjustbox}     % for valign and clipping options
 
 
+% Charter supplies its regular, bold and italic faces in T1 encoding.
+\usepackage[T1]{fontenc}
 \ifPDFTeX
     \input{glyphtounicode}
     \pdfgentounicode=1
-    \usepackage[T1]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage{lmodern}
 \fi

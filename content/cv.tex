@@ -9,34 +9,29 @@
     %% Header
     %% ─── Header with photo ──────────────────────────────────────────
 \begin{center}
-  \begin{tabular}{@{} >{\centering}m{3.5cm}
-                      @{ \hspace{0.7cm} }
-                      m{\dimexpr\linewidth-4.2cm\relax}
-                  @{}}
+  % Both minipages share the same vertical center.
+  \begin{minipage}[c]{3.55cm}
+    \centering
     %───────────────────────────────────────────────────────────────
     % left cell: circle‑clipped image
-    \tikz[baseline={([yshift=0cm]current bounding box.center)}]{
+    \tikz{
       \node[
         circle, draw, line width=1pt,
         minimum size=3.5cm, inner sep=0pt, outer sep=0pt,
         path picture={
-          % 1) clip to a 1.5cm radius circle...
+          % Clip the portrait to the circular frame.
           \clip (path picture bounding box.center) circle (1.75cm);
-          % 2) then place the image (width=2.6cm so you get a little white margin)
+          % Preserve the portrait aspect ratio.
           \node at (path picture bounding box.center)
-            {\IfFileExists{assets/shot.png}{%
-              \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{assets/shot.png}%
-            }{\IfFileExists{shot.png}{%
-              \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{shot.png}%
-            }{\color{primaryColor}\fontsize{24pt}{26pt}\selectfont HMN}}};
+            {\includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{images/shot.png}};
         }
       ] {};
     }
-    &
+  \end{minipage}\hspace{0.7cm}%
     % right cell: name / title / contacts
-    \begin{minipage}[c]{\linewidth}
+    \begin{minipage}[c]{\dimexpr\linewidth-4.25cm\relax}
       {\fontsize{27pt}{27pt}\selectfont\bfseries Ha Minh Nguyen}\\[8pt] 
-      {\fontsize{16pt}{16pt}\selectfont Data  \& BI intern}\\[8pt]
+      {\fontsize{16pt}{16pt}\selectfont Data Engineer}\\[8pt]
       {\fontsize{10pt}{12pt}\selectfont\color{primaryColor}
         \faPhone\ 0822677004 \quad
         \faEnvelope\ \href{mailto:nguyen.haminh050504@gmail.com}{nguyen.haminh050504@gmail.com}\\[2pt]
@@ -44,7 +39,6 @@
         \faMapMarker*\ Thanh My Tay District
       }
     \end{minipage}
-  \end{tabular}
 \end{center}
 
 
@@ -54,8 +48,8 @@
     %% Objectives
     \section{Objectives}
     \begin{onecolentry}
-        Soon-to-be Computer Engineering graduate at Ho Chi Minh City University of Technology
-(HCMUT) familiar with SQL, PowerBi and data processing. Interested in in data engineering and data warehouse development, eager to apply my technical and problem-solving skills to build reliable data pipelines and support data-driven solutions while continuously learning in a professional environment.
+        Graduate of Ho Chi Minh City University of Technology
+(BKU) familiar with SQL, PowerBi and data processing. Interested in data engineering and data warehouse development, eager to apply my technical and problem-solving skills to build reliable data pipelines and support data-driven solutions while continuously learning in a professional environment.
     \end{onecolentry}
 
     %% Education
@@ -74,38 +68,56 @@
  \begin{twocolentry}{04/2026 -- 08/2026}
         \textbf{Google Data Analytics Certificate}
     \end{twocolentry}
-    \vspace{0.1cm}
  %%Certificate:
  \section{Certificates}
     \begin{twocolentry}{12/2025}
     \textbf{TOEIC Listening \& Reading}: 755
     \end{twocolentry}
-    \vspace{0.1cm}
 
     %% Skills   
     \section{Skills}
 
 \vspace{0.1cm}
 \begin{onecolentry}
-    \textbf{Programming \& Databases:} 
-    Python(Numpy, pandas, matplotlib, seaborn), SQL, MySQL.
+    \textbf{SQL \& Databases:} 
+    SQL(joins, CTEs, window functions, aggregations, reconciliation queries), PostgreSQL, Oracle, Amazon Athena
 \end{onecolentry}
 
 \vspace{0.1cm}
 \begin{onecolentry}
-    \textbf{Data Engineering:} 
-Data Cleaning, Data Validation, Data Processing, Data Analysis, dbt
+    \textbf{Data Transformation \& Quality:} 
+Data Modeling, Data Validation, Data Processing, Data Analysis, dbt
 \end{onecolentry}
 
 \vspace{0.1cm}
 
 \begin{onecolentry}
-    \textbf{BITools \& Reporting:} Power BI (Power Query, DAX, Data Modeling, Interactive Dashboards), Excel (PivotTable, Power Query, VLOOKUP)
-   
+    \textbf{Pipelines \& Development:} Amazon S3, Git, Azure DevOps, CI/CD workflows,IBM DataStage, Apache Airflow
 \end{onecolentry}
     \vspace{0.1cm}
+
+\begin{onecolentry}
+    \textbf{Python \& BI:}
+    Python(pandas, NumPy). Power BI (Power Query, DAX, Data Modeling, Interactive Dashboards).
+\end{onecolentry}
     %% WE  
     \section{Work Experience}
+
+    \begin{twocolentry}{08/2026 -- Present}
+        \textbf{FSS | Data Engineer Intern}
+    \end{twocolentry}
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        \textit{Temenos T24 Core Banking Migration}
+        \par\vspace{0.1cm}
+        \textbf{Tech Stack:} SQL, dbt, Apache Airflow, Amazon S3, Amazon Athena, Oracle Database, IBM DataStage, Azure DevOps, CI/CD.
+        \begin{highlights}
+            \item Submitted SQL/dbt changes through the team's CI/CD pipeline and validated deployments during SIT and UAT Round 1, from Airflow runs and Athena checks on Amazon S3 to loads into on-premises Oracle.
+            \item Validated Airflow-orchestrated dbt pipelines and queried outputs on Amazon S3 with Amazon Athena. Verified downstream loads into the on-premises Oracle data warehouse.
+            \item Developed IBM DataStage loads to integrate data from digital banking, card systems, sales, and insurance into the Knowledge Management (KM) data warehouse.
+        \end{highlights}
+    \end{onecolentry}
+    \vspace{0.1cm}
 
     \begin{twocolentry}{06/2025 -- 09/2025}
         \textbf{EyeCode Tech}
@@ -115,14 +127,12 @@ Data Cleaning, Data Validation, Data Processing, Data Analysis, dbt
         \begin{itemize}
             \item Coordinated tasks and project progress across a cross-functional development team.
        \item Assisted in organizing, validating, and integrating project data while coordinating with the web development team.
-       \item Followed up on project issues and supported communication between technical team members.
         \end{itemize}
 
     \end{onecolentry}
     \vspace{0.1cm}
 
    
-
     %% Projects
     \section{Projects}
     \vspace{0.1cm}   
@@ -134,32 +144,21 @@ Data Cleaning, Data Validation, Data Processing, Data Analysis, dbt
     \begin{onecolentry}
         Overview: Analyzed FMCG sales transactions to optimize data processing, evaluate business performance, and generate actionable insights.
         \\ \vspace{0.1cm}
-        \textbf{Tech stacks}: SQL, MySQL, Power BI, Excel.
+        \textbf{Tech stacks}: SQL, dbt, duckdb, Power BI, Github actions, Git, CI/CD workflows
         \\ \vspace{0.1cm}
         \textbf{Key Features:}
         \begin{highlights}
-            \item \textbf{} Built an ETL pipeline for 6.7M FMCG sales transactions by correcting invalid revenue data and executing multi-stage pre-aggregations into summary tables, enabling Power BI dashboards to analyze aggregated KPIs instead of scanning raw transaction-level data.
-            \item \textbf{} Delivered business insights across 5 Power BI dashboards, showing that FMCG revenue was broadly distributed across cities, driven mainly by a few high-contribution product categories, and better managed through category-level inventory planning, customer segmentation, salesperson productivity tracking, and regional coverage strategy.
-            \item Implemented dbt models and data quality tests to organize and validate data transformations for downstream analytics.
+            \item \textbf{} Built an ETL and dimensional modeling pipeline for 6.7M+
+        sales transactions using Python, dbt, and DuckDB, producing
+        analytics-ready fact, dimension, and aggregate tables for Power BI.
+            \item \textbf{} Implemented a GitHub Actions CI/CD pipeline that validates
+        pull requests with synthetic test data, executes dbt builds and
+        business-rule assertions, packages the production DuckDB warehouse
+        as a versioned artifact, and publishes dbt documentation to
+        GitHub Pages.
+            \item Delivered five Power BI dashboards covering revenue trends,
+        product performance, customer segmentation, salesperson
+        productivity, and geographic contribution to support inventory,
+        CRM, and regional planning decisions.
         \end{highlights}
-    \end{onecolentry}
-
-    \vspace{0.5cm}
-    \begin{twocolentry}{10/2025 -- 12/2025}
-        \textbf{Predictive Modeling \& Environmental Data Analysis(Group project)} 
-    \href{https://github.com/NguyenHa554/Automatic-Greenhouse-irrigation-system}{\faGithub}
-    \end{twocolentry}
-    \vspace{0.1cm}
-    \begin{onecolentry}
-        Problem:  Inefficient agricultural resource allocation and potential crop failures due to unoptimized watering schedules.
-        \\ \vspace{0.1cm}
-        \textbf{Tech stack}: Python (Pandas, NumPy, Seaborn, Matplotlib), LightGBM, SMOTE, Excel.
-        \\ \vspace{0.1cm}
-        \textbf{Key Features:}
-        \begin{highlights}
-            \item \textbf{Forecasting \& Predictive Modeling:} : Merged and cleaned three separate environmental datasets (Climate, Weather, Sensors)containing over 47,000 records.
-            \item \textbf{Predictive   Modeling:} Developed and fine-tuned a LightGBM Regressor model to accurately forecast continuous watering amounts based on environmental variables, achieving an R2 score of 0.6115 and a Mean Absolute Error (MAE) of 0.3729 on future test data.
-            \item \textbf{Safety Optimization (Classification Proxy):} Translated the continuous regression predictions into a binary operational logic using a strict 0.1 safety threshold. Successfully established a highly reliable early-warning proxy that achieved a 98.05\% Recall score, ensuring plants strictly receive sufficient water to prevent system failures.
-        \end{highlights}
-        
     \end{onecolentry}
